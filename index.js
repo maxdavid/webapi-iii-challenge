@@ -1,10 +1,12 @@
 const express = require('express');
 const server = express();
+const cors = require('cors');
 
 const userRouter = require('./users/userRouter');
 const postRouter = require('./posts/postRouter');
 
 server.use(express.json());
+server.use(cors());
 
 const logger = (req, res, next) => {
   console.log(`${req.method} request made to ${req.url} at ${Date.now()}`);
